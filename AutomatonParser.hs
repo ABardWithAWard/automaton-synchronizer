@@ -1,6 +1,7 @@
 module AutomatonParser
   ( DFA(..)
   , parseDFAFromFile
+  , State
   ) where
 
 import System.IO
