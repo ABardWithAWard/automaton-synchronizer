@@ -14,7 +14,7 @@ main = do
 
   -- Dropped heuristics based synchronizability verification,
   -- as for larger automatas we cant find the shortest synchronizing word in a reasonable time anyway
-  putStrLn "\nChecking synchronizability (Pair Graph)..."
+  putStrLn "\nChecking synchronizability..."
   let isSynchronizable = pairGraphFallback dfa
   print isSynchronizable
 
