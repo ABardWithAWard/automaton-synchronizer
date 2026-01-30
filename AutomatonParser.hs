@@ -2,23 +2,23 @@ module AutomatonParser
   ( DFA(..)
   , parseDFAFromFile
   , State
+  , Symbol
   ) where
 
 import System.IO
 import System.Environment
 
---Makes things readable
+-- Makes things readable
 type State = String
 type Symbol = String
 
---Might need to change the transitionMat in future to look more like a monoid, it should make aperiodicity test way easier
-
+-- Some things in this definition are unused, could be removed if revisitted.
 data DFA = DFA
   { states        :: [State]
   , alphabet      :: [Symbol]
   , startState    :: State
   , acceptStates  :: [State]
-  , transitions   :: [((State, Symbol), State)]
+  , transitions   :: [((State, Symbol), State)] -- We need it to get the matrix, so might as well save it
   , transitionMat :: [[State]]   -- 2D matrix: states x alphabet
   } deriving Show
 
