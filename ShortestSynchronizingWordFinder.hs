@@ -5,7 +5,7 @@ module ShortestSynchronizingWordFinder
 import AutomatonParser (DFA(..), State, Symbol)
 
 -- Finds the shortest synchronizing word using subset-based BFS.
--- Tried SAT solver as well, but it is unsusable for Cerny automatons with n > 5.
+-- Tried SAT solver as well, but it is unusable for Cerny automatons with n > 5.
 -- This one can find the shortest word for Cerny automatons with given times:
 -- n <= 10 <= 0.1s
 -- n = 11 ~0.3s
@@ -18,7 +18,7 @@ import AutomatonParser (DFA(..), State, Symbol)
 -- Tests were done using Benchmark.hs
 
 -- Good way to visualize this algorithm is to check out Fig. 11 on page 20 (837) in pdf provided.
--- It works in a similiar way to algorithm which determinizes NFAs
+-- It works in a similiar way to algorithm which determinizes NFAs.
 findSynchronizingWord :: DFA -> [Symbol]
 findSynchronizingWord dfa =
     let
@@ -117,11 +117,8 @@ sort (x:xs) = insert x (sort xs)
 
 -- Remove duplicates from sorted list
 uniq :: Eq a => [a] -> [a]
-uniq []     = []
-uniq [x]    = [x]
-uniq (x:y:xs)
-  | x == y    = uniq (y:xs)
-  | otherwise = x : uniq (y:xs)
+uniq [] = []
+uniq (x:xs) = x : uniq (filter (/= x) xs)
 
 -- Get ID of x in given list
 getIdx :: Eq a => a -> [a] -> Int

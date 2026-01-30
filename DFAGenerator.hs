@@ -81,7 +81,7 @@ runTest testNum = do
     putStrLn (formatDFA dfa)
     
     let isSync = pairGraphFallback dfa
-    putStrLn $ "Pair graph says Synchronizable: " ++ show isSync
+    putStrLn $ "Pair graph says synchronizable: " ++ show isSync
     
     if isSync 
         then do
@@ -94,7 +94,7 @@ runTest testNum = do
                 then putStrLn "Result: VALID"
                 else putStrLn "Result: INVALID"
         else 
-            putStrLn "Result: Non-Synchronizable"
+            putStrLn "Result: Non-synchronizable"
     putStrLn "-------------------------------\n"
 
 main :: IO ()

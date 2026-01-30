@@ -15,7 +15,7 @@ import ShortestSynchronizingWordFinder (findSynchronizingWord)
 -- Random DFAs are good to check if algorithm works, but the bigger the automaton the higher the probability its synchronizing. 
 -- Most random DFAs have sublinear synchronizing words from what I noticed during testing as well, 
 -- which makes finding shortest synchronizing word too easy to evaluate algorithm performance.
--- Cerny automatons also have a predictable lenght and are known to be:
+-- Cerny automatons also have a predictable length and are known to be:
 -- (b^(n-1)a)^(n-2)b
 -- so it is easy to verify solution even by hand.
 
@@ -49,8 +49,8 @@ generateCernyDFA n =
     in DFA 
         { states        = stateNames
         , alphabet      = alphabetNames
-        , startState    = "q0"
-        , acceptStates  = ["q" ++ show (n-1)]
+        , startState    = "q0" --doesnt matter
+        , acceptStates  = ["q0"] --doesnt matter
         , transitions   = allTrans
         , transitionMat = mat
         }
